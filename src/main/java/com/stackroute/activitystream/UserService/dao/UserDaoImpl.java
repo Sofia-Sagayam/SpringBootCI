@@ -17,16 +17,10 @@ import com.stackroute.activitystream.UserService.model.User;
 @EnableTransactionManagement
 public class UserDaoImpl implements UserDao {
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	
 	private List<User> listOfUser;
-	/*public UserDaoImpl(SessionFactory sessionFactory) {
-		// TODO Auto-generated constructor stub
-		this.sessionFactory=sessionFactory;
-	}
-	public UserDaoImpl() {
-		// TODO Auto-generated constructor stub
-	}*/
+
 public boolean registerUser(User user) {
 	try{
 	sessionFactory.getCurrentSession().save(user);
@@ -47,12 +41,20 @@ catch(Exception e){
 return false;}
 }
 public List<User> getUsers() {
+	try{
 		listOfUser=sessionFactory.getCurrentSession().createQuery("from User").list();
+	}
+	catch(Exception e){
+		
+	}
 	return listOfUser;
 }
 
-public boolean validateUser(String usrid,String usrpass){
-	listOfUser=sessionFactory.openSession().createQuery("from User u where u.emailid=? and u.upass=?").setParameter(0, usrid).setParameter(1, usrpass).list();
+public boolean validateUser(String userid,String userpass){
+	try{
+	listOfUser=sessionFactory.openSession().createQuery("from User u where u.emailid=? and u.upass=?").setParameter(0, userid).setParameter(1, userpass).list();
+	}
+	catch(Exception e){}
 	return listOfUser.size()>0?true:false;
 }
 
@@ -67,8 +69,11 @@ public boolean deleteUser(String mailID) {
 	}
 
 public User getUserbyId(String mailid) {
-	
+	try{
 	return sessionFactory.getCurrentSession().get(User.class, mailid);
+	}
+	catch(Exception e){}
+	return null;
 }
 
 }

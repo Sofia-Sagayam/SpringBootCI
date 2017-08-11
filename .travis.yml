@@ -1,1 +1,9 @@
-language:	java
+language: java
+
+services:
+  - mysql
+
+
+before_install:
+  - mysql -e 'CREATE DATABASE activitybackend;'
+
