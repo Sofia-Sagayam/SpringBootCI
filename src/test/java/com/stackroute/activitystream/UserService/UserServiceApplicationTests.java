@@ -28,9 +28,9 @@ public class UserServiceApplicationTests {
 	}
 	@Test
 	public void saveUser() {
-	user.setEmailId("jayashree@niit.com");
-	user.setUserName("jaya");
-	user.setUserPass("jaya#321");
+	user.setEmailId("dummy@niit.com");
+	user.setUserName("dummy");
+	user.setUserPass("dummy#321");
 	user.setUserAddress("guduvancherry chennai");
 	userDao.registerUser(user);
 	User found=userDao.getUserbyId(user.getEmailId());
@@ -40,13 +40,13 @@ public class UserServiceApplicationTests {
 
 	@Test
 	public void reteriveUser(){
-		User reterivedData=	userDao.getUserbyId("jk@gmail.com");
+		User reterivedData=	userDao.getUserbyId("dummy@niit.com");
 		assertNotNull(reterivedData);
 	}
 	@Test
 	public void updateUser(){
-		User reterivedData=	userDao.getUserbyId("jk@gmail.com");
-		reterivedData.setUserName("jai kutty");
+		User reterivedData=	userDao.getUserbyId("dummy@niit.com");
+		reterivedData.setUserName("sample");
 		assertTrue(userDao.updateUser(reterivedData));
 	}
 	@Test
