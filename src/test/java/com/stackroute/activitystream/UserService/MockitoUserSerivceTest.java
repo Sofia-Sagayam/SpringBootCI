@@ -61,7 +61,7 @@ public class MockitoUserSerivceTest {
 	    			.andExpect(status().isCreated());
 	    			
 	    }
-	    @Test
+	 /*   @Test
 	    public void signIn() throws Exception{
 	    	User user=new User();
 	    	user.setEmailId("jk@gmail.com");
@@ -73,7 +73,7 @@ public class MockitoUserSerivceTest {
 	                .andExpect(status().isOk())
 	                .andExpect(cookie().exists("JSESSIONID"));	    	    	
 	    }
-	    
+	    */
 	   /* @Test
 	    public void testUserLogin() throws Exception {
 	        RequestBuilder requestBuilder = post("/login")
