@@ -8,39 +8,34 @@ import org.springframework.stereotype.Component;
 @Entity
 public class User {
 	@Id
-	private String emailid;
-	private String uname;
-	private String upass;
-	private String uaddress;
-
-	public String getUaddress() {
-		return uaddress;
+	private String emailId;
+	private String userName;
+	private String userPass;
+	private String userAddress;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setUaddress(String uaddress) {
-		this.uaddress = uaddress;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
-	public String getUname() {
-		return uname;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getUpass() {
-		return upass;
+	public String getUserPass() {
+		return userPass;
 	}
-	public void setUpass(String upass) {
-		this.upass = upass;
+	public void setUserPass(String userPass) {
+		this.userPass = userPass;
 	}
-
-
-	public String getEmailid() {
-		return emailid;
+	public String getUserAddress() {
+		return userAddress;
 	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
-	}
-	public String toString(){
-		return this.getUname()+this.getUpass()+this.getEmailid()+this.getUaddress();
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
+	
 }

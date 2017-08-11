@@ -17,21 +17,23 @@ import com.stackroute.activitystream.UserService.model.User;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class UserServiceApplicationTests {
+	
 	@Autowired
 	private UserDao userDao;
 	private static User user;
+	
 	@BeforeClass
 	public static void initiate(){
 		user=new User();
 	}
 	@Test
 	public void saveUser() {
-	user.setEmailid("jayashree@niit.com");
-	user.setUname("jaya");
-	user.setUpass("jaya#321");
-	user.setUaddress("guduvancherry chennai");
+	user.setEmailId("jayashree@niit.com");
+	user.setUserName("jaya");
+	user.setUserPass("jaya#321");
+	user.setUserAddress("guduvancherry chennai");
 	userDao.registerUser(user);
-	User found=userDao.getUserbyId(user.getEmailid());
+	User found=userDao.getUserbyId(user.getEmailId());
 	assertNotNull(found);
 	
 	}
@@ -44,12 +46,12 @@ public class UserServiceApplicationTests {
 	@Test
 	public void updateUser(){
 		User reterivedData=	userDao.getUserbyId("jk@gmail.com");
-		reterivedData.setUname("jai kutty");
+		reterivedData.setUserName("jai kutty");
 		assertTrue(userDao.updateUser(reterivedData));
 	}
 	@Test
 	public void deleteUser(){
-		assertTrue(userDao.deleteUser("dummy@nit.com"));
+		assertTrue(userDao.deleteUser("dummy@niit.com"));
 	}
 	
 
